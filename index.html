@@ -281,7 +281,6 @@ href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/css/intlTelInput.
                     <img src="./images/separatorBlack 1.png" alt="">
             </div>
             
-            <form action="contact.php" method="POST">
 
     <input
         type="text"
@@ -303,12 +302,13 @@ href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/css/intlTelInput.
         required>
 
     <textarea
-    id="message"
-    name="message"
-    placeholder="YOUR MESSAGE*"
-    required></textarea>
+        name="message"
+        placeholder="YOUR MESSAGE"
+        required></textarea>
 
-    <button type="submit">SUBMIT</button>
+    <button type="submit">
+        SUBMIT
+    </button>
 
 </form>
 
@@ -375,6 +375,55 @@ const iti = window.intlTelInput(phoneInput, {
 
     loadUtils: () =>
         import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/js/utils.js")
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+emailjs.init({
+    publicKey: "aLB21bLsJl8hPwej0ihvM",
+});
+
+const form = document.getElementById("contact-form");
+
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const submitBtn = form.querySelector("button");
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+
+    emailjs.sendForm(
+    "service_0e2249f",
+    "template_shuz89n",
+    form
+)
+    .then(() => {
+
+        // Submit to Netlify Forms
+        fetch("/", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: new URLSearchParams(new FormData(form)).toString(),
+        })
+        .then(() => {
+            alert("✅ Thank you! Your message has been sent successfully.");
+            form.reset();
+        })
+        .catch(() => {
+            alert("Email sent, but Netlify couldn't save the submission.");
+        });
+
+    })
+    .catch((error) => {
+        console.error(error);
+        alert("❌ Failed to send message.");
+    })
+    .finally(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "SUBMIT";
+    });
 });
 </script>
 </body>
