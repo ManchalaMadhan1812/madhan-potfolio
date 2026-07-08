@@ -1,0 +1,27 @@
+{
+  "name": "madhan-potfolio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManchalaMadhan1812/madhan-potfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ManchalaMadhan1812/madhan-potfolio/issues"
+  },
+  "homepage": "https://github.com/ManchalaMadhan1812/madhan-potfolio#readme",
+  "dependencies": {
+    "nodemailer": "^9.0.3"
+  },
+  "devDependencies": {
+    "netlify-cli": "^26.2.0"
+  }
+}
