@@ -281,6 +281,7 @@ href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/css/intlTelInput.
                     <img src="./images/separatorBlack 1.png" alt="">
             </div>
             
+    <form id="contact-form">
 
     <input
         type="text"
@@ -398,27 +399,12 @@ form.addEventListener("submit", function (e) {
     form
 )
     .then(() => {
-
-        // Submit to Netlify Forms
-        fetch("/", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: new URLSearchParams(new FormData(form)).toString(),
-        })
-        .then(() => {
-            alert("✅ Thank you! Your message has been sent successfully.");
-            form.reset();
-        })
-        .catch(() => {
-            alert("Email sent, but Netlify couldn't save the submission.");
-        });
-
+        alert("✅ Message sent successfully!");
+        form.reset();
     })
     .catch((error) => {
         console.error(error);
-        alert("❌ Failed to send message.");
+        alert("❌ " + (error.text || error.message || "Failed to send message."));
     })
     .finally(() => {
         submitBtn.disabled = false;
