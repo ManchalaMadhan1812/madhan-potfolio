@@ -544,12 +544,18 @@
         placeholder="ENTER YOUR EMAIL"
         required>
 
+    <div class="phone-box">
+    <span class="country-code">🇮🇳 +91</span>
+
     <input
-    type="tel"
-    id="phone"
-    name="phone"
-    placeholder="ENTER YOUR PHONE"
-    required>
+        type="tel"
+        id="phone"
+        name="phone"
+        placeholder="ENTER YOUR PHONE"
+        pattern="[0-9]{10}"
+        maxlength="10"
+        required>
+</div>
 
     <textarea
         id="message"
@@ -628,33 +634,6 @@
             icons[1].setAttribute("data-visible", !visible);
 
         });
-    </script>
-
-    <!-- Phone Input -->
-
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/js/intlTelInput.min.js"></script>
-
-    <script>
-
-        const phoneInput = document.querySelector("#phone");
-
-        window.intlTelInput(phoneInput, {
-
-            initialCountry: "in",
-            separateDialCode: false,
-
-            preferredCountries: [
-                "in",
-                "us",
-                "gb",
-                "ae"
-            ],
-
-            loadUtils: () =>
-                import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/js/utils.js")
-
-        });
-
     </script>
 
 </body>
