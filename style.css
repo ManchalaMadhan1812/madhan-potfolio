@@ -823,55 +823,35 @@ header{
     resize:vertical;
 }
 
-/* ==========================================
-   PHONE INPUT
-========================================== */
+/* PHONE INPUT */
 
 .iti{
-    position:relative;
     width:100%;
-    border-left:4px solid #000;
-    border-bottom:4px solid #000;
 }
 
 .iti input{
     width:100% !important;
-    height:55px !important;
+    height:55px;
 
     border:none !important;
-    background:transparent !important;
-    outline:none !important;
+    border-left:4px solid #000 !important;
+    border-bottom:4px solid #000 !important;
 
-    padding-left:135px !important;
+    background:transparent !important;
+
+    padding-left:95px !important;
 
     font-size:16px;
     font-family:"Inter",sans-serif;
-    color:#111;
-}
-
-/* Vertical separator */
-
-.iti::after{
-    content:"";
-    position:absolute;
-    left:110px;
-    top:10px;
-    width:1px;
-    height:35px;
-    background:#000;
 }
 
 .iti__selected-country{
-    padding-left:12px !important;
     background:transparent !important;
-}
-
-.iti__selected-country-primary{
-    background:transparent !important;
+    border:none !important;
 }
 
 .iti__divider{
-    display:none !important;
+    display:none;
 }
 
 .iti__country-list{
