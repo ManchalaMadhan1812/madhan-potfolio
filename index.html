@@ -515,7 +515,21 @@
 
             </div>
 
-            <form id="contact-form">
+            <form
+    name="contact"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    action="/thank-you.html">
+
+    <input type="hidden" name="form-name" value="contact">
+
+    <p hidden>
+        <label>
+            Don't fill this out:
+            <input name="bot-field">
+        </label>
+    </p>
 
                 <input
                     type="text"
@@ -642,71 +656,9 @@
 
     </script>
 
-    <!-- EmailJS -->
+</body>
 
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
-    <script>
-
-        const form = document.getElementById("contact-form");
-
-form.addEventListener("submit", async (e) => {
-
-    e.preventDefault();
-
-    const button = form.querySelector("button");
-
-    button.disabled = true;
-    button.textContent = "Sending...";
-
-    const data = {
-        name: form.name.value,
-        email: form.email.value,
-        phone: form.phone.value,
-        message: form.message.value
-    };
-
-    try{
-
-        const response = await fetch("/.netlify/functions/send-email",{
-
-            method:"POST",
-
-            headers:{
-                "Content-Type":"application/json"
-            },
-
-            body:JSON.stringify(data)
-
-        });
-
-        if(response.ok){
-
-            alert("✅ Message sent successfully!");
-
-            form.reset();
-
-        }else{
-
-            alert("❌ Failed to send message.");
-
-        }
-
-    }catch(err){
-
-        console.error(err);
-
-        alert("❌ Server error.");
-
-    }
-
-    button.disabled=false;
-
-    button.textContent="SUBMIT";
-
-});
-
-    </script>
+</html>
 
 </body>
 

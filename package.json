@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ManchalaMadhan1812/madhan-potfolio#readme",
   "dependencies": {
+    "@supabase/supabase-js": "^2.110.2",
     "nodemailer": "^9.0.3"
   },
   "devDependencies": {
