@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/css/intlTelInput.css">
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -524,6 +526,7 @@
     action="/thank-you.html">
 
     <input type="hidden" name="form-name" value="contact">
+    <input type="hidden" name="full_phone" id="full_phone">
 
     <p hidden>
         <label>
@@ -548,13 +551,11 @@
     <span class="country-code">🇮🇳 +91</span>
 
     <input
-        type="tel"
-        id="phone"
-        name="phone"
-        placeholder="ENTER YOUR PHONE"
-        pattern="[0-9]{10}"
-        maxlength="10"
-        required>
+    type="tel"
+    id="phone"
+    name="phone"
+    placeholder="ENTER YOUR PHONE"
+    required>
 </div>
 
     <textarea
@@ -636,6 +637,40 @@
         });
     </script>
 
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/js/intlTelInput.min.js"></script>
+
+<script>
+const phoneInput = document.querySelector("#phone");
+
+const iti = window.intlTelInput(phoneInput, {
+
+    initialCountry: "in",
+
+    preferredCountries: [
+        "in",
+        "us",
+        "gb",
+        "ae",
+        "ca",
+        "au"
+    ],
+
+    separateDialCode: true,
+
+    autoPlaceholder: "aggressive",
+
+    loadUtils: () =>
+        import("https://cdn.jsdelivr.net/npm/intl-tel-input@25.3.2/build/js/utils.js")
+
+});
+
+// Save full phone number before submitting
+document.getElementById("contact-form").addEventListener("submit", function () {
+
+    document.getElementById("full_phone").value = iti.getNumber();
+
+});
+</script>
 </body>
 
 </html>
