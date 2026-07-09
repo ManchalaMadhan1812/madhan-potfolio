@@ -793,7 +793,7 @@ header{
     gap:30px;
 }
 
-#contact-form input,
+#contact-form input:not(#phone),
 #message{
     width:100%;
     padding:15px;
@@ -828,55 +828,54 @@ header{
 ========================================== */
 
 .iti{
+    position:relative;
     width:100%;
+    border-left:4px solid #000;
+    border-bottom:4px solid #000;
 }
 
 .iti input{
-    padding-left:145px !important;
-}
-
-    padding-left:130px !important;
+    width:100% !important;
+    height:55px !important;
 
     border:none !important;
-    border-left:4px solid #000 !important;
-    border-bottom:4px solid #000 !important;
-
     background:transparent !important;
+    outline:none !important;
+
+    padding-left:135px !important;
 
     font-size:16px;
     font-family:"Inter",sans-serif;
+    color:#111;
+}
+
+/* Vertical separator */
+
+.iti::after{
+    content:"";
+    position:absolute;
+    left:110px;
+    top:10px;
+    width:1px;
+    height:35px;
+    background:#000;
 }
 
 .iti__selected-country{
-    background:transparent !important;
-    border:none !important;
     padding-left:12px !important;
+    background:transparent !important;
 }
 
 .iti__selected-country-primary{
     background:transparent !important;
 }
 
-.iti__country-list{
-    color:#111;
-}
-
 .iti__divider{
     display:none !important;
 }
 
-.iti__selected-country{
-    display:flex !important;
-    align-items:center;
-    height:55px;
-}
-
-.iti__flag{
-    margin-right:8px;
-}
-
-.iti__selected-dial-code{
-    font-weight:600;
+.iti__country-list{
+    color:#111;
 }
 
 /* ==========================================
