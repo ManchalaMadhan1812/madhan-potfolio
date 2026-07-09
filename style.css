@@ -832,21 +832,29 @@ header{
 }
 
 .iti input{
-    width:100% !important;
-    height:55px;
-    padding-left:90px !important;
-    background:transparent !important;
+    padding-left:145px !important;
+}
+
+    padding-left:130px !important;
+
     border:none !important;
     border-left:4px solid #000 !important;
     border-bottom:4px solid #000 !important;
+
+    background:transparent !important;
+
     font-size:16px;
     font-family:"Inter",sans-serif;
-    color:#111;
 }
 
 .iti__selected-country{
     background:transparent !important;
     border:none !important;
+    padding-left:12px !important;
+}
+
+.iti__selected-country-primary{
+    background:transparent !important;
 }
 
 .iti__country-list{
@@ -854,7 +862,21 @@ header{
 }
 
 .iti__divider{
-    display:none;
+    display:none !important;
+}
+
+.iti__selected-country{
+    display:flex !important;
+    align-items:center;
+    height:55px;
+}
+
+.iti__flag{
+    margin-right:8px;
+}
+
+.iti__selected-dial-code{
+    font-weight:600;
 }
 
 /* ==========================================
