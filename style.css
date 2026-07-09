@@ -770,6 +770,10 @@ header{
    CONTACT SECTION
 ========================================== */
 
+/* ==========================================
+   CONTACT SECTION
+========================================== */
+
 .contact{
     margin-top:100px;
     display:flex;
@@ -784,149 +788,73 @@ header{
 #contact-form{
     width:60%;
     margin:0 auto;
-
     display:flex;
     flex-direction:column;
     gap:30px;
 }
 
-#contact-form input{
+#contact-form input,
+#message{
     width:100%;
-    height:52px;
-
     padding:15px;
-
     background:transparent;
-
+    color:#111;
     border:none;
     border-left:4px solid #000;
     border-bottom:4px solid #000;
-
     outline:none;
-
     font-size:16px;
     font-family:"Inter",sans-serif;
-
-    color:#111;
+    box-sizing:border-box;
 }
 
-#contact-form input::placeholder{
+#contact-form input{
+    height:55px;
+}
+
+#contact-form input::placeholder,
+#message::placeholder{
     color:#666;
     text-transform:uppercase;
+}
+
+#message{
+    min-height:180px;
+    resize:vertical;
 }
 
 /* ==========================================
    PHONE INPUT
 ========================================== */
 
-/* Container */
 .iti{
     width:100%;
-    position:relative;
-
-    border-left:4px solid #000;
-    border-bottom:4px solid #000;
-}
-
-/* Phone input */
-.iti input{
-    width:100% !important;
-    height:50px;
-
-    border:none !important;
-    outline:none;
-
-    background:transparent;
-
-    padding-left:95px !important;
-
-    font-size:16px;
-    font-family:"Inter",sans-serif;
-}
-
-/* Country selector */
-.iti__selected-country{
-    border:none !important;
-    background:transparent !important;
-    box-shadow:none !important;
-}
-
-/* Remove separator */
-.iti__selected-country-primary{
-    border:none !important;
-}
-
-.iti__divider{
-    display:none !important;
-}
-
-/* Container */
-.iti{
-    width:100%;
-    border-left:4px solid #000;
-    border-bottom:4px solid #000;
 }
 
 .iti input{
     width:100% !important;
-    height:50px;
-
-    border:none !important;
-    outline:none;
-    background:transparent;
-
-    padding-left:140px !important; /* Increase this */
-
-    font-size:16px;
-    font-family:"Inter",sans-serif;
-}
-/* Country selector */
-.iti__selected-country{
-    border:none !important;
+    height:55px;
+    padding-left:90px !important;
     background:transparent !important;
-    box-shadow:none !important;
-}
-
-/* Remove separator */
-.iti__selected-country-primary{
     border:none !important;
-}
-
-.iti__divider{
-    display:none !important;
-}
-/* ==========================================
-   MESSAGE
-========================================== */
-
-#message{
-
-    width:100%;
-    min-height:180px;
-
-    padding:18px;
-
-    background:transparent;
-
-    border:none;
-    border-left:4px solid #000;
-    border-bottom:4px solid #000;
-
-    outline:none;
-
-    resize:vertical;
-
+    border-left:4px solid #000 !important;
+    border-bottom:4px solid #000 !important;
     font-size:16px;
     font-family:"Inter",sans-serif;
-
     color:#111;
 }
 
-#message::placeholder{
+.iti__selected-country{
+    background:transparent !important;
+    border:none !important;
+}
 
-    color:#666;
-    text-transform:uppercase;
+.iti__country-list{
+    color:#111;
+}
 
+.iti__divider{
+    display:none;
 }
 
 /* ==========================================
@@ -934,31 +862,45 @@ header{
 ========================================== */
 
 #contact-form button{
-
     width:220px;
-    margin:auto;
-
+    margin:15px auto 0;
     padding:14px;
-
+    background:transparent;
     border:none;
     border-left:2px solid #000;
-    border-right:2px solid #000000;
-
-    background:transparent;
-
+    border-right:2px solid #000;
     font-size:20px;
     font-weight:700;
-
     cursor:pointer;
-
-    transition:.35s;
-
+    transition:.3s;
 }
 
 #contact-form button:hover{
-
     background:#111;
     color:#fff;
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media(max-width:768px){
+
+    #contact-form{
+        width:90%;
+    }
+
+}
+
+@media(max-width:480px){
+
+    #contact-form{
+        width:100%;
+    }
+
+    #contact-form button{
+        width:100%;
+    }
 
 }
 
